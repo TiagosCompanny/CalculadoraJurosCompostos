@@ -156,6 +156,16 @@ namespace Abtrix
             }
             else
             {
+                if (radioButton2.Checked)
+                {
+                    taxa_Mensal = Math.Pow(1 + (taxa_Mensal / 100), 1.0 / 12) - 1;
+
+                }
+                else
+                {
+                    taxa_Mensal /= 100;
+                }
+
                 Planilha planilha = new Planilha();
                 planilha.GerarTabelaJurosCompostos((decimal)valorInicial, periodo_Meses, (decimal)valorAporteMensal, (decimal)taxa_Mensal);
                 planilha.GerarGraficoJurosCompostos(periodo_Meses);

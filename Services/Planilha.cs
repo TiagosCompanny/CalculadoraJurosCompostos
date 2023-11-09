@@ -44,7 +44,7 @@ namespace Abtrix.Services
             {
                 worksheet.Cell("A" + (2 + mes).ToString()).Value = mes;
 
-                decimal juros = AcumulativoRetroativoParaCalculoDeJuros * taxa / 100;
+                decimal juros = AcumulativoRetroativoParaCalculoDeJuros * taxa; // 100;
                 worksheet.Cell("B" + (2 + mes).ToString()).Value = juros;
 
                 AcumulativoTotalInvestido += valorAporteMensal;
@@ -67,7 +67,7 @@ namespace Abtrix.Services
             worksheet.Column(4).Width = 20;
             worksheet.Column(5).Width = 20;
 
-            worksheet.Range("A1:E" + periodoTotalMeses).Style.Border.SetTopBorder(XLBorderStyleValues.Thin).Border.SetRightBorder(XLBorderStyleValues.Thin).Border.SetBottomBorder(XLBorderStyleValues.Thin).Border.SetLeftBorder(XLBorderStyleValues.Thin);
+            worksheet.Range("A1:E" + periodoTotalMeses + 2).Style.Border.SetTopBorder(XLBorderStyleValues.Thin).Border.SetRightBorder(XLBorderStyleValues.Thin).Border.SetBottomBorder(XLBorderStyleValues.Thin).Border.SetLeftBorder(XLBorderStyleValues.Thin);
 
             worksheet.Range("A1:E1").Style.Font.SetFontSize(12).Font.SetFontName("Arial");
             worksheet.Range("A1:E1").Style.Font.SetBold();
